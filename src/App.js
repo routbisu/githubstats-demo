@@ -1,26 +1,41 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.scss";
+import Header from "./components/Header/Header";
+import PageContent from "./components/PageContent/PageContent";
+import { Provider } from "react-redux";
+import store from "./store";
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      isLoggedIn: false,
+      userDetails: null
+    };
+  }
+
+  onLoginHandler = userDetails => {
+    console.log("UD", userDetails);
+    this.setState({ userDetails: userDetails, isLoggedIn: true });
+  };
+
+  onLogoutHandler = () => {
+    this.setState({ isLoggedIn: false, userDetails: null });
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <Header
+            isLoggedIn={this.state.isLoggedIn}
+            userDetails={this.state.userDetails}
+            onLogout={this.onLogoutHandler}
+          />
+          <PageContent />
+        </div>
+      </Provider>
     );
   }
 }

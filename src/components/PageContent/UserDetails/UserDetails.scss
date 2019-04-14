@@ -1,0 +1,40 @@
+.user-details {
+    margin: 10px;
+
+    img.avatar-pic {
+        width: 100px;
+    }
+
+    .user-bio {
+        font-size: 12px;
+        padding: 10px;
+        border: 1px solid #eaeaea;
+        border-top: none;
+        line-height: 1.3em;
+    }
+
+    table {
+        border-collapse: collapse;
+        font-size: 12px;
+        width: 100%;
+
+        tbody {
+
+            tr {
+
+                th {
+                    text-align: left;
+                    padding: 5px 10px;
+                    border: 1px solid #eaeaea;
+                    background: #f1f1f1;
+                }
+
+                td {
+                    padding: 5px 10px;
+                    border: 1px solid #eaeaea;
+                    line-height: 1.4em;
+                }
+            }
+        }
+    }
+}
